@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Add your head content, title, and styles here -->
+</head>
+<body>
+
+<div th:replace="fragments/header"></div>
+
+<div class="container">
+    <h2>Withdraw</h2>
+    <!-- Withdraw Form -->
+    <form th:action="@{/api/accounts/withdraw}" th:object="${transactionForm}" method="post">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" th:field="*{amount}" required>
+        <input type="hidden" name="accountId" th:value="${accountId}">
+        <button type="submit">Withdraw</button>
+    </form>
+</div>
+
+<div th:replace="fragments/footer"></div>
+
+</body>
+</html>

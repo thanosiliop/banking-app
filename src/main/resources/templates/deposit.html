@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<div th:replace="fragments/header"></div>
+
+<div class="container">
+  <h2>Deposit</h2>
+  <form th:action="@{/api/accounts/deposit/{accountId}" th:object="${transactionForm}" method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" th:field="*{amount}" required>
+    <input type="hidden" name="accountId" th:value="${accountId}">
+    <button type="submit">Deposit</button>
+  </form>
+</div>
+
+<div th:replace="fragments/footer"></div>
+
+</body>
+</html>

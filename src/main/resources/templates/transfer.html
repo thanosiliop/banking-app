@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Add your head content, title, and styles here -->
+</head>
+<body>
+
+<div th:replace="fragments/header"></div>
+
+<div class="container">
+  <h2>Transfer</h2>
+  <!-- Transfer Form -->
+  <form th:action="@{/api/accounts/transfer}" th:object="${transferForm}" method="post">
+    <label for="sourceAccountId">Source Account ID:</label>
+    <input type="number" id="sourceAccountId" name="sourceAccountId" th:field="*{sourceAccountId}" required>
+    <label for="destinationAccountId">Destination Account ID:</label>
+    <input type="number" id="destinationAccountId" name="destinationAccountId" th:field="*{destinationAccountId}" required>
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" th:field="*{amount}" required>
+    <button type="submit">Transfer</button>
+  </form>
+</div>
+
+<div th:replace="fragments/footer"></div>
+
+</body>
+</html>
